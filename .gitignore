@@ -1,0 +1,19 @@
+## .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+## Database / local secrets
+*.db
+*.db-shm
+*.db-wal
+appsettings.Development.json
+
+## VS Code
+.vscode/
+
+## OS
+.DS_Store
+Thumbs.db
