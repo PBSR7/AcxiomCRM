@@ -1,2 +1,173 @@
-@model Lead
-@{ViewData["Title"]="New Lead";}<div class="form-shell"><div class="eyebrow">CRM / LEADS</div><h1 class="page-title">Create Lead</h1><p class="text-muted">Capture, qualify and assign a new prospect.</p><form asp-action="Create" method="post" class="panel"><div asp-validation-summary="ModelOnly" class="text-danger"></div><div class="row g-3"><div class="col-md-6"><label asp-for="LeadName"></label><input asp-for="LeadName" class="form-control"/><span asp-validation-for="LeadName" class="text-danger"></span></div><div class="col-md-6"><label asp-for="CompanyName"></label><input asp-for="CompanyName" class="form-control"/></div><div class="col-md-6"><label asp-for="Email"></label><input asp-for="Email" class="form-control"/><span asp-validation-for="Email" class="text-danger"></span></div><div class="col-md-6"><label asp-for="Phone"></label><input asp-for="Phone" class="form-control"/><span asp-validation-for="Phone" class="text-danger"></span></div><div class="col-md-4"><label asp-for="Source"></label><select asp-for="Source" class="form-select"><option>Website</option><option>Referral</option><option>LinkedIn</option><option>Campaign</option><option>Event</option></select></div><div class="col-md-4"><label asp-for="Status"></label><select asp-for="Status" class="form-select"><option>New</option><option>Contacted</option><option>Qualified</option><option>Unqualified</option><option>Converted</option><option>Lost</option></select></div><div class="col-md-4"><label asp-for="Priority"></label><select asp-for="Priority" class="form-select"><option>Low</option><option>Medium</option><option>High</option></select></div><div class="col-md-6"><label asp-for="ExpectedValue"></label><input asp-for="ExpectedValue" class="form-control"/><span asp-validation-for="ExpectedValue" class="text-danger"></span></div></div><div class="mt-4 d-flex gap-2"><a asp-action="Index" class="btn btn-light">Cancel</a><button class="btn btn-primary">Save Lead</button></div></form></div>
+@model AcxiomCRM.Models.Lead
+
+@{
+    ViewData["Title"] = "New Lead";
+}
+
+<div class="form-shell">
+    <div class="eyebrow">CRM / LEADS</div>
+
+    <h1 class="page-title">Create Lead</h1>
+
+    <p class="text-muted">
+        Capture, qualify and assign a new prospect.
+    </p>
+
+    <form asp-action="Create" method="post" class="panel">
+
+        <div asp-validation-summary="ModelOnly"
+             class="text-danger mb-3"></div>
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label asp-for="LeadName" class="form-label">
+                    Lead Name
+                </label>
+
+                <input asp-for="LeadName"
+                       class="form-control"
+                       placeholder="Enter lead name" />
+
+                <span asp-validation-for="LeadName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="CompanyName" class="form-label">
+                    Company Name
+                </label>
+
+                <input asp-for="CompanyName"
+                       class="form-control"
+                       placeholder="Enter company name" />
+
+                <span asp-validation-for="CompanyName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Email" class="form-label">
+                    Email
+                </label>
+
+                <input asp-for="Email"
+                       type="email"
+                       class="form-control"
+                       placeholder="name@example.com" />
+
+                <span asp-validation-for="Email"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Phone" class="form-label">
+                    Phone
+                </label>
+
+                <input asp-for="Phone"
+                       type="tel"
+                       class="form-control"
+                       placeholder="9876543210" />
+
+                <span asp-validation-for="Phone"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Source" class="form-label">
+                    Source
+                </label>
+
+                <select asp-for="Source"
+                        class="form-select">
+
+                    <option value="Website">Website</option>
+                    <option value="Referral">Referral</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Campaign">Campaign</option>
+                    <option value="Event">Event</option>
+
+                </select>
+
+                <span asp-validation-for="Source"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Status" class="form-label">
+                    Status
+                </label>
+
+                <select asp-for="Status"
+                        class="form-select">
+
+                    <option value="New">New</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Qualified">Qualified</option>
+                    <option value="Unqualified">Unqualified</option>
+                    <option value="Converted">Converted</option>
+                    <option value="Lost">Lost</option>
+
+                </select>
+
+                <span asp-validation-for="Status"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Priority" class="form-label">
+                    Priority
+                </label>
+
+                <select asp-for="Priority"
+                        class="form-select">
+
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+
+                </select>
+
+                <span asp-validation-for="Priority"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="ExpectedValue" class="form-label">
+                    Expected Value
+                </label>
+
+                <input asp-for="ExpectedValue"
+                       type="number"
+                       min="0"
+                       step="0.01"
+                       class="form-control"
+                       placeholder="0.00" />
+
+                <span asp-validation-for="ExpectedValue"
+                      class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+
+            <a asp-action="Index"
+               class="btn btn-light">
+                Cancel
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Save Lead
+            </button>
+
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
